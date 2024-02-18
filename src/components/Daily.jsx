@@ -4,41 +4,44 @@ import axios from 'axios';
 
 function Daily() {
 
-    const [dailyForecast, setDailyForecast] = useState();
+    const [dailyForecast, setDailyForecast] = useState(null);
     const baseUrl = "https://weatherapi.adaptable.app"
     const locationId = 1;
 
-    useEffect(() => {
+    const getDailyForecast = () => {
         axios.get(`${baseUrl}/locations/${locationId}?_embed=daily`)
             .then((response) => {
-                setDailyForecast(response.data);    
+                setDailyForecast(response.data);
             })
             .catch((e) => {
                 console.log(e);
-            })
-    },[]);
+            });
+    };
 
-    const arr = dailyForecast;
-    console.log(arr)
-  
+    useEffect(() => {
+        getDailyForecast();
+    }, []);
+    console.log(dailyForecast)
+
     return (
         <>
-        
-            {/* <section>
-                {dailyForecast.daily.map((daily)=>{
-                <div>
-                    <img></img>
-                    <div>
-                        <span>{daily.date}</span>
-                        <span>{daily.hour}</span>
+        <section>
+        {dailyForecast === null ? <p>getting the forecst</p> : <p></p>}
+            { dailyForecast && dailyForecast.daily.map((forecast,index) => {
+                    return <div key={index}>
+                        <img></img>
+                        <div>
+                            <span>{forecast.date}</span>
+                            <span>{forecast.hour}</span>
+                        </div>
+                        <div>
+                            <span>{forecast.windspeed}</span>
+                            <span>{forecast.rain}</span>
+                        </div>
+                        <p>weather(sunny or rainy)</p>
                     </div>
-                    <div>
-                        <span>{daily.windspeed}</span>
-                        <span>{daily.rain}</span>
-                    </div>
-                    <p>weather(sunny or rainy)</p>
-                </div>})}
-            </section> */}
+                })}
+            </section>
         </>
     );
 }
