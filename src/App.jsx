@@ -9,11 +9,11 @@ import WeatherDetailsPage from './pages/WeatherDetailsPage'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
     <>
-      <h1>Hari and Tesa</h1>
+      <h1 className="text-9xl">Hari and Tesa</h1>
       <Routes >
         <Route path="/" element={<HomePage />}>HomePage</Route>
         <Route path="/about" element={<AboutPage />}>AboutPage</Route>
