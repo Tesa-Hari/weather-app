@@ -23,7 +23,6 @@ function App() {
   </nav>
   return (
     <>
-      {/* <h1 className="text-9xl">Hari and Tesa</h1> */}
       <Routes >
         <Route path="/" element={<HomePage />}>HomePage</Route>
         <Route path="/about" element={<AboutPage />}>AboutPage</Route>
