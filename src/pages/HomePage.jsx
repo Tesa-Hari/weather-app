@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../assets/images/cast.png'
 import Banner from "./BannerPage";
 import Location from "../components/Location";
+import Footer from "./Footer";
 function HomePage() {
     const [locationId, setLocationId] = useState(1);
     function selectLocation(id) {
