@@ -9,6 +9,23 @@ function Weekly() {
     const baseUrl = "https://weatherapi.adaptable.app";
     const locationId = 1;
 
+// Delete weekly
+
+function deleteCard(id){
+  
+    // Delete
+axios.delete(`${baseUrl}/weekly/${id}`)
+.then(()=>{
+   getWeeklyForecast();
+    
+})
+.catch((e)=>{
+    console.log("Eror ",e);
+})
+
+}
+
+
     const getWeeklyForecast =()=>{
         axios.get( `${baseUrl}/locations/${locationId}?_embed=weekly`)
         .then((response)=>{
@@ -40,7 +57,12 @@ console.log(weeklyForeCast)
                             <span>{weekforecast.windspeed}</span>
                             <span>{weekforecast.rain}</span>
                         </div>
+
                         <p>weather(sunny or rainy)</p>
+
+                        <button onClick={()=>{
+                            deleteCard(weekforecast.id);
+                        }}>Delete</button>
                     </div>
                 })}
             </section>
