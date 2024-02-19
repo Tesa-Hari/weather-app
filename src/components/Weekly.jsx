@@ -54,7 +54,7 @@ console.log(weeklyForeCast)
                            
                         </div>
                         <div>
-                            <span>{weekforecast.windspeed}</span>
+                            <span>{weekforecast.temperature}</span>
                             <span>{weekforecast.rain}</span>
                         </div>
 

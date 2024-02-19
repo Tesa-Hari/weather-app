@@ -4,24 +4,58 @@ import { useState, useEffect } from "react";
 import {
     Card,
     Input,
-    Checkbox,
     Button,
     Typography,
   } from "@material-tailwind/react";
   import Location from "./Location";
-  
-
- 
-
 
 function CreateWeekly() {
 
     const [locations, setLocations] = useState(null);
+    const [date, setDate] = useState(null);
+    const [locationId, setLocationId] = useState(null);
+    const [temperature, setTemperature] = useState();
+    const [humidity, setHumidity] = useState();
+    const [rain, setRain] = useState();
+    const [sun, setSun] = useState();
+    const [snow, setSnow] = useState();
+  
     const baseUrl = "https://weatherapi.adaptable.app"
     const locationValue = "default";
 
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        const id = parseInt(locationId);
+        console.log(locationId);
+
+       const forecastObj ={
+        "locationId": id,
+        "date": date,
+        "currenttemp": temperature,
+        "humidity": humidity,
+        "rain": rain,
+        "sunny": sun,
+        "snow": snow
+       } 
+            axios.post(`${baseUrl}/weekly`, forecastObj)
+            .then((res)=>{
+                console.log("It's posted")
+                    console.log(res.data);
+                    
+            })
+            .catch((e)=>{
+                console.log("Error, ", e);
+            })
+            setDate();
+            setLocationId();
+            setTemperature();
+            setHumidity();
+            setRain();
+            setSnow();
+            setSun();
+
+
       }  
 
       useEffect(() => {
@@ -33,7 +67,6 @@ function CreateWeekly() {
                 console.log(e);
             })
     })
-
     return (<>
 
         <div>
@@ -41,21 +74,22 @@ function CreateWeekly() {
 
        
         <Card color="transparent" shadow={false}>
-      <Typography color="gray" className="mt-5 font-normal">
+      <Typography title = "Add Forecast" color="gray" className="mt-5 font-normal">
        Add Forecast 
       </Typography>
       <form onSubmit={handleSubmit} className="mt-8 mb-2  pl-30 w-80 max-w-screen-lg sm:w-96 ">
         <div className="mb-1 flex flex-col gap-6">
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography title = "Add Forecast" variant="h6" color="blue-gray" className="-mb-3">
             Add Weekly Forecast
             </Typography>
             {/* location */}
             {locations === null && <p>Loading</p>}
             {locations && 
 
-            <select defaultValue={locationValue} id="location" 
+            <select defaultValue={locationValue}  onChange={(e) => { setLocationId(e.target.value)}} id="location"
                     className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option disabled value="default">Location</option>
+                    
                     {locations.map((location) => {
                         return <option key={location.id} value={location.id}>{location.city}</option>
                     })}
@@ -63,7 +97,7 @@ function CreateWeekly() {
                 </select>
                 }
 
-          <Input
+          <Input required onChange={(e) => { setDate(e.target.value)}}
         //   date
             size="lg"
             placeholder="Date: dd/mm/yyyy"
@@ -77,7 +111,7 @@ function CreateWeekly() {
 
         
           {/* Temperature */}
-          <Input
+          <Input required onChange={(e) => { setTemperature(e.target.value)}}
             size="lg"
             placeholder="0"min={-100} max={100}
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -86,11 +120,10 @@ function CreateWeekly() {
               className: "before:content-none after:content-none",
             }}
           />
-          {/* humidity */}
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography  title = "Add Forecast" variant="h6" color="blue-gray" className="-mb-3">
             {/* Humidity */}
           </Typography>
-          <Input
+          <Input required onChange={(e) => { setHumidity(e.target.value)}}
             type="number"
             size="lg"
             placeholder="0"min={0} max={100}
@@ -100,10 +133,10 @@ function CreateWeekly() {
             }}
           />
           {/* Rain */}
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
-            {/* Humidity */}
+          <Typography title = "Add Forecast" variant="h6" color="blue-gray" className="-mb-3">
+            {/* Rain */}
           </Typography>
-          <Input
+          <Input required onChange={(e) => { setRain(e.target.value)}}
             type="number"
             size="lg"
             placeholder="0"min={0} max={100}
@@ -113,10 +146,10 @@ function CreateWeekly() {
             }}
           />
           {/* Sun */}
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography  title = "Add Forecast" variant="h6" color="blue-gray" className="-mb-3">
             {/* Sun */}
           </Typography>
-          <Input
+          <Input required onChange={(e) => { setSun(e.target.value)}}
             type="number"
             size="lg"
             placeholder="0"min={0} max={100}
@@ -126,10 +159,10 @@ function CreateWeekly() {
             }}
           />
           {/* Snow */}
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
+          <Typography title = "Add Forecast" variant="h6" color="blue-gray" className="-mb-3">
             {/* Snow */}
           </Typography>
-          <Input
+          <Input required onChange={(e) => { setSnow(e.target.value)}}
             type="number"
             size="lg"
             placeholder="0"min={0} max={100}
@@ -138,13 +171,15 @@ function CreateWeekly() {
               className: "before:content-none after:content-none",
             }}
           />
+        
         </div>
   
-        <Button className="mt-6" fullWidth>
+        <button type="submit" className="mt-6" fullWidth>
           Create
-        </Button>
-  
+        </button>
       </form>
+     
+  
     </Card>
             
         </div>

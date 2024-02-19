@@ -4,19 +4,25 @@ import axios from 'axios'
 
 function Location(props) {
 
+
     const [locations, setLocations] = useState(null);
     const baseUrl = "https://weatherapi.adaptable.app"
     const locationValue = "default";
 
-    useEffect(() => {
+
+    function getLocation(){
         axios.get(`${baseUrl}/locations`)
-            .then(response => {
-                setLocations(response.data)
-            })
-            .catch(e => {
-                console.log(e);
-            })
-    })
+        .then(response => {
+            setLocations(response.data)
+        })
+        .catch(e => {
+            console.log(e);
+        })
+    }
+    useEffect(() => {
+       getLocation();
+
+    },[])
 
     return (
         <>
