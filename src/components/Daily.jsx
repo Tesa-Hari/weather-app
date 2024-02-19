@@ -8,6 +8,29 @@ function Daily(props) {
     const baseUrl = "https://weatherapi.adaptable.app"
     const locationId = props.locationId;
 
+    // prevent reload
+
+
+   function deleteCard(id){
+  
+        // Delete
+    axios.delete(`${baseUrl}/daily/${id}`)
+    .then(()=>{
+        axios.get(`${baseUrl}/locations/${locationId}?_embed=daily`)
+        .then((response) => {
+            setDailyForecast(response.data);
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+        
+    })
+    .catch((e)=>{
+        console.log("Eror ",e);
+    })
+
+   }
+
     useEffect(() => {
         axios.get(`${baseUrl}/locations/${locationId}?_embed=daily`)
         .then((response) => {
@@ -35,6 +58,9 @@ function Daily(props) {
                         </div>
                         <p>weather(sunny or rainy)</p>
                         <p>{dailyForecast.city}</p>
+                        <button onClick={()=>{
+                            deleteCard(forecast.id)
+                        }}>Delete</button>
                     </div>
                 })}
             </section>
