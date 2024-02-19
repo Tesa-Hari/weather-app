@@ -1,11 +1,22 @@
 import React from "react";
 
-function Banner(){
-
-
+function Banner() {
     return (
         <>
-        <h2 className=" w-full bg-white dark:bg-black z-50 py-[38px] px-0 flex justify-center">This is the Banner</h2>
+            <section className="flex flex-row justify-between">
+                <div>
+                    <p>City</p>
+                    <p>Date</p>
+                    <div>
+                        <p>Wind</p>
+                        <p>Rain</p>
+                    </div>
+                </div>
+                <div>
+                    today card
+                </div>
+
+            </section>
         </>
     )
 }
