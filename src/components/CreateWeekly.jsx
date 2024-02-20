@@ -7,6 +7,7 @@ import {
     Button,
     Typography,
   } from "@material-tailwind/react";
+  import { useNavigate } from "react-router-dom";
   import Location from "./Location";
 
 function CreateWeekly() {
@@ -19,6 +20,7 @@ function CreateWeekly() {
     const [rain, setRain] = useState();
     const [sun, setSun] = useState();
     const [snow, setSnow] = useState();
+    const navigate = useNavigate();
   
     const baseUrl = "https://weatherapi.adaptable.app"
     const locationValue = "default";
@@ -31,12 +33,12 @@ function CreateWeekly() {
 
        const forecastObj ={
         "locationId": id,
-        "date": date,
-        "currenttemp": temperature,
-        "humidity": humidity,
-        "rain": rain,
-        "sunny": sun,
-        "snow": snow
+        "date": parseInt(date),
+        "currenttemp": parseInt(temperature),
+        "humidity":parseInt(humidity),
+        "rain": parseInt(rain),
+        "sunny": parseInt(sun),
+        "snow": parseInt(snow)
        } 
             axios.post(`${baseUrl}/weekly`, forecastObj)
             .then((res)=>{
@@ -55,6 +57,8 @@ function CreateWeekly() {
             setSnow();
             setSun();
 
+            //
+            navigate("/");
 
       }  
 

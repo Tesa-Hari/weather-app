@@ -4,10 +4,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 
-function Weekly() {
+function Weekly(props) {
     const [weeklyForeCast, setWeeklyForecast] = useState(null);
     const baseUrl = "https://weatherapi.adaptable.app";
-    const locationId = 1;
+    const locationId = props.locationId;
 
 // Delete weekly
 
@@ -31,14 +31,14 @@ axios.delete(`${baseUrl}/weekly/${id}`)
         .then((response)=>{
             setWeeklyForecast(response.data);
         })
-        .catch((err)=>{
+        .catch((e)=>{
             console.log(e)
         });
     };
 
 useEffect (()=>{
     getWeeklyForecast();
-},[]);
+},[locationId]);
 console.log(weeklyForeCast)
 
 
