@@ -4,3 +4,12 @@
   padding: 2rem;
   text-align: center;
 }
+.delete{
+  border: 1px solid black;
+  padding: 5px;
+}
+.update{
+  margin-left:5px;
+  border: 1px solid black;
+  padding: 5px;
+}

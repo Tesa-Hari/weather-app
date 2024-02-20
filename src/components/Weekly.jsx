@@ -2,12 +2,17 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+
+import '../App.css'
 
 
 function Weekly(props) {
     const [weeklyForeCast, setWeeklyForecast] = useState(null);
     const baseUrl = "https://weatherapi.adaptable.app";
     const locationId = props.locationId;
+    const navigate  = useNavigate();
 
 // Delete weekly
 
@@ -25,7 +30,6 @@ axios.delete(`${baseUrl}/weekly/${id}`)
 
 }
 
-
     const getWeeklyForecast =()=>{
         axios.get( `${baseUrl}/locations/${locationId}?_embed=weekly`)
         .then((response)=>{
@@ -40,6 +44,13 @@ useEffect (()=>{
     getWeeklyForecast();
 },[locationId]);
 console.log(weeklyForeCast)
+
+function UpdateWeekly(weekforecast){
+   
+    navigate('/updateweekly',{state:weekforecast})
+
+    console.log("forecast ...", weekforecast);
+    }
 
 
     return (
@@ -60,9 +71,12 @@ console.log(weeklyForeCast)
 
                         <p>weather(sunny or rainy)</p>
 
-                        <button onClick={()=>{
+                        <button  className ="delete" onClick={()=>{
                             deleteCard(weekforecast.id);
                         }}>Delete</button>
+                        <button onClick={()=>{
+                            UpdateWeekly(weekforecast);
+                        }} className="update">Update</button>
                     </div>
                 })}
             </section>
