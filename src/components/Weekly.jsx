@@ -14,6 +14,8 @@ function Weekly(props) {
     const locationId = props.locationId;
     const navigate  = useNavigate();
 
+    
+
 // Delete weekly
 
 function deleteCard(id){
@@ -51,14 +53,31 @@ function UpdateWeekly(weekforecast){
 
     console.log("forecast ...", weekforecast);
     }
+    let displayTheFirstFive = null;
+        if(weeklyForeCast!==null){
+    
+            displayTheFirstFive = weeklyForeCast.weekly.filter((el,index)=>{
+                if(index<5){
+                    return true;
+                }
+                else{
+                    return false;
+                }
 
+            })
+        }
+   
 
+    console.log(displayTheFirstFive);
     return (
         <>
          <section>
-        {weeklyForeCast === null ? <p>getting the forecst</p> : <p></p>}
-            { weeklyForeCast && weeklyForeCast.weekly.map((weekforecast,index) => {
-                    return <div key={index}>
+        {weeklyForeCast === null ? 
+        <p>getting the forecst</p> : <p></p>}
+            { displayTheFirstFive && displayTheFirstFive.map((weekforecast,index) => {
+                   
+                   
+                   return <div key={index}>
                         <img></img>
                         <div>
                             <span>{weekforecast.date}</span>

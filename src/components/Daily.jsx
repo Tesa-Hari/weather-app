@@ -41,11 +41,27 @@ function Daily(props) {
         });
     }, [locationId]);
     console.log(dailyForecast);
+
+        // First five
+        let displayTheFirstFive = null;
+        if(dailyForecast!==null){
+    
+            displayTheFirstFive = dailyForecast.daily.filter((el,index)=>{
+                if(index<5){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+
+            })
+        }
+
     return (
         <>
             <section>
                 {dailyForecast === null ? <p>getting the forecst</p> : <p></p>}
-                {dailyForecast && dailyForecast.daily.map((forecast, index) => {
+                {displayTheFirstFive && displayTheFirstFive.map((forecast, index) => {
                     return <div key={index}>
                         <img></img>
                         <div>
