@@ -3,10 +3,9 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-
 import '../App.css'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function Weekly(props) {
     const [weeklyForeCast, setWeeklyForecast] = useState(null);
@@ -71,31 +70,31 @@ function UpdateWeekly(weekforecast){
     console.log(displayTheFirstFive);
     return (
         <>
-         <section>
-        {weeklyForeCast === null ? 
-        <p>getting the forecst</p> : <p></p>}
+         <section className="w-full text-lg  py-1 grid grid-cols-5">
+        {weeklyForeCast === null && 
+        <p>getting the forecst</p> }
             { displayTheFirstFive && displayTheFirstFive.map((weekforecast,index) => {
                    
                    
-                   return <div key={index}>
+                   return <div key={index} className="m-5">
                         <img></img>
-                        <div>
+                        <div className="text-center">
                             <span>{weekforecast.date}</span>
                            
                         </div>
-                        <div>
-                            <span>{weekforecast.temperature}</span>
-                            <span>{weekforecast.rain}</span>
+                        <div className="flex flex-row justify-start align-center">
+                            <span className="text-2xl ml-2 ">{weekforecast.currenttemp}</span>
+                            <span className="text-xl ml-2 ">{weekforecast.rain}</span>
                         </div>
-
-                        <p>weather(sunny or rainy)</p>
-
-                        <button  className ="delete" onClick={()=>{
+                        <p className="text-center">Rainy</p>
+                        <div className="relative">
+                        <button   className="absolute bottom-0 right-0" onClick={()=>{
                             deleteCard(weekforecast.id);
-                        }}>Delete</button>
+                        }}> <FontAwesomeIcon icon={faTrash} />   </button>
                         <button onClick={()=>{
                             UpdateWeekly(weekforecast);
-                        }} className="update">Update</button>
+                        }} className="absolute bottom-0 right-5"> <FontAwesomeIcon icon={faEdit} /> </button>
+                    </div>
                     </div>
                 })}
             </section>

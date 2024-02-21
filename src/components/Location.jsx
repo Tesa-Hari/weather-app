@@ -10,36 +10,36 @@ function Location(props) {
     const locationValue = "default";
 
 
-    function getLocation(){
+    function getLocation() {
         axios.get(`${baseUrl}/locations`)
-        .then(response => {
-            setLocations(response.data)
-        })
-        .catch(e => {
-            console.log(e);
-        })
+            .then(response => {
+                setLocations(response.data)
+            })
+            .catch(e => {
+                console.log(e);
+            })
     }
     useEffect(() => {
-       getLocation();
+        getLocation();
 
-    },[])
+    }, [])
 
     return (
-        <>
+        <div className="p-1 w-24.5 min-w-xs ">
             {locations === null && <p>Loading</p>}
             {locations && <div>
 
                 <select defaultValue={locationValue} id="location" onChange={(e) => props.callBackLocation(e.target.value)}
-                    className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    className="w-full appearance-none bg-purple-500 text-center text-white text-lg rounded-lg hover:bg-purple-700 hover:shadow-lg block w-full p-2.5">
                     <option disabled value="default">Location</option>
                     {locations.map((location) => {
-                        return <option key={location.id} value={location.id}>{location.city}</option>
+                        return <option className="block border-2 border-white px-4 py-2 hover:text-gray-500" key={location.id} value={location.id}>{location.city}</option>
                     })}
 
                 </select>
 
             </div>}
-        </>
+        </div>
     )
 
 }

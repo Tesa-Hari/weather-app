@@ -13,7 +13,8 @@ function HomePage() {
 
     const [locationId, setLocationId] = useState(1);
     const location = useLocation();
-    console.log("Location is",location.state);
+    const [isToday, setIsToday] = useState(true);
+    // console.log("Location is",location.state);
     //bug
     // if(location.state)
     // {
@@ -28,21 +29,29 @@ function HomePage() {
 
     return (
         <>
-            <nav className="flex flex-wrap items-center justify-center sm:justify-start">
-                <img src="{logo}" alt="Logo" className="h-8 mr-4" /> 
-                <NavLink to="/" className="text-sm font-semibold leading-6 text-gray-900 mr-4">Home | </NavLink>
-                <NavLink to="/about" className="text-sm font-semibold leading-6 text-gray-900 mr-4">About | </NavLink>
-                <NavLink to="/createweekly/" className="text-sm font-semibold leading-6 text-gray-900 mr-4">Create Weekly | </NavLink>
-                
-            </nav>
-
-            <Location callBackLocation={selectLocation} />
-
-            <Banner></Banner>
-            <Daily locationId={locationId} />
-            <Weekly locationId={locationId} />
-
+        <section className="w-full text-lg flex flex-col flex-wrap sm:flex-nowrap py-1 flex-grow">
+            <nav className="w-fixed w-full flex-shrink flex-grow-0 px-4">
+                <div className=" flex flex-row flex-wrap justify-between sticky top-0 p-3 w-full h-full">
+                <div className=" flex flex-row flex-wrap">
+                <img src="{logo}" alt="Logo" className="h-8 mr-4" /><span className="text-blue-500">WeatherWise</span> 
+                </div>
+                <div className="text-lg font-semibold leading-6 text-gray-900">
+                <NavLink to="/" className="mr-4" >Home </NavLink>
+                <NavLink to="/about" className="mr-4">About  </NavLink>
+                <NavLink to="/createweekly/" className="mr-4">Create Weekly  </NavLink>  
+                </div>
+                <Location callBackLocation={selectLocation} />
+                </div>
+            </nav> 
+            <Banner locationId={locationId}></Banner>
+           <div className="p-2 mt-4 mb-4"> 
+            <span className="p-2" onClick={()=>{setIsToday(true);} }>Today</span>  
+             <span className="p-2" onClick={()=>{setIsToday(false);}}>Weekly</span>
+            {isToday ? <Daily locationId={locationId} /> :
+            <Weekly locationId={locationId} />}
+            </div>
          <Footer />
+         </section>
         </>
     )
 }
