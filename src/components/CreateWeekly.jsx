@@ -8,7 +8,7 @@ import {
     Typography,
   } from "@material-tailwind/react";
   import { useNavigate } from "react-router-dom";
-  import Location from "./Location";
+  
 
 function CreateWeekly() {
 
@@ -70,23 +70,22 @@ function CreateWeekly() {
             .catch(e => {
                 console.log(e);
             })
-    })
+    },[])
     return (<>
 
         <div>
             <h1>Create Weekly</h1>
 
-       
+{/*        
         <Card color="transparent" shadow={false}>
-      <Typography title = "Add Forecast" color="gray" className="mt-5 font-normal">
        Add Forecast 
-      </Typography>
+    
       <form onSubmit={handleSubmit} className="mt-8 mb-2  pl-30 w-80 max-w-screen-lg sm:w-96 ">
         <div className="mb-1 flex flex-col gap-6">
-          <Typography title = "Add Forecast" variant="h6" color="blue-gray" className="-mb-3">
+          
             Add Weekly Forecast
-            </Typography>
-            {/* location */}
+           
+            
             {locations === null && <p>Loading</p>}
             {locations && 
 
@@ -102,89 +101,62 @@ function CreateWeekly() {
                 }
 
           <Input required onChange={(e) => { setDate(e.target.value)}}
-        //   date
             size="lg"
             placeholder="Date: dd/mm/yyyy"
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-            labelProps={{
-              className: "before:content-none after:content-none",
            
-            }}
             type="date"
           />
 
         
-          {/* Temperature */}
+         
           <Input required onChange={(e) => { setTemperature(e.target.value)}}
             size="lg"
             placeholder="0"min={-100} max={100}
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
             
-            labelProps={{
-              className: "before:content-none after:content-none",
-            }}
           />
-          <Typography  title = "Add Forecast" variant="h6" color="blue-gray" className="-mb-3">
-            {/* Humidity */}
-          </Typography>
+          
           <Input required onChange={(e) => { setHumidity(e.target.value)}}
             type="number"
             size="lg"
             placeholder="0"min={0} max={100}
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-            labelProps={{
-              className: "before:content-none after:content-none",
-            }}
           />
-          {/* Rain */}
-          <Typography title = "Add Forecast" variant="h6" color="blue-gray" className="-mb-3">
-            {/* Rain */}
-          </Typography>
+          
           <Input required onChange={(e) => { setRain(e.target.value)}}
             type="number"
             size="lg"
             placeholder="0"min={0} max={100}
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-            labelProps={{
-              className: "before:content-none after:content-none",
-            }}
+           
           />
-          {/* Sun */}
-          <Typography  title = "Add Forecast" variant="h6" color="blue-gray" className="-mb-3">
-            {/* Sun */}
-          </Typography>
+
           <Input required onChange={(e) => { setSun(e.target.value)}}
             type="number"
             size="lg"
             placeholder="0"min={0} max={100}
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-            labelProps={{
-              className: "before:content-none after:content-none",
-            }}
+            
           />
-          {/* Snow */}
-          <Typography title = "Add Forecast" variant="h6" color="blue-gray" className="-mb-3">
-            {/* Snow */}
-          </Typography>
+         
           <Input required onChange={(e) => { setSnow(e.target.value)}}
             type="number"
             size="lg"
             placeholder="0"min={0} max={100}
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-            labelProps={{
-              className: "before:content-none after:content-none",
-            }}
+           
           />
         
         </div>
   
-        <button type="submit" className="mt-6" fullWidth>
+        <button type="submit" className="mt-6">
           Create
         </button>
       </form>
      
   
-    </Card>
+    </Card> */}
             
         </div>
     </>
