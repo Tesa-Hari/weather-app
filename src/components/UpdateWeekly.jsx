@@ -3,12 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import {
-  Card,
-  Input,
-  Button,
-  Typography,
-} from "@material-tailwind/react";
 import axios from "axios";
 
 
@@ -66,75 +60,53 @@ function UpdateWeekly() {
     <>
 
       {/* form */}
+      <h1 className="text-center text-2xl text-blue-400">Update Weekly</h1>
+      <div  className="flex justify-center">
+      
+        <form onSubmit={handleSubmit} className="mt-8 mb-2  pl-30 w-80 max-w-screen-lg sm:w-96 ">
+          <div className="mb-1 flex flex-col gap-6">
+            <label className="text-purple-700 text-lg">Temperature</label>
+            <input value={temperature} required onChange={(e) => { setTemperature(e.target.value) }}
+              className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+              size="lg"
+              placeholder="0" min={-100} max={100}
+            />
+            <label  className="text-purple-700 text-lg">Humidity</label>
+            <input value={humidity} required onChange={(e) => { setHumidity(e.target.value) }}
+              className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+              type="number"
+              size="lg"
+              placeholder="0" min={0} max={100}
+            />
+            <label  className="text-purple-700 text-lg" >Rain</label>
+            <input value={rain} required onChange={(e) => { setRain(e.target.value) }}
+            className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+              type="number"
+              size="lg"
+              placeholder="0" min={0} max={100}
+            />
+            <label  className="text-purple-700 text-lg">Sun</label>
+            <input value={sun} required onChange={(e) => { setSun(e.target.value) }}
+            className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+              type="number"
+              size="lg"
+              placeholder="0" min={0} max={100}
+            />
+            <label  className="text-purple-700 text-lg">Snow</label>
+            <input value={snow} required onChange={(e) => { setSnow(e.target.value) }}
+            className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+              type="number"
+              size="lg"
+              placeholder="0" min={0} max={100}
+            />
+          </div>
 
-      <div>
-        <h1>Update Weekly</h1>
-
-
-        {/* <Card color="transparent" shadow={false}>
-          <form onSubmit={handleSubmit} className="mt-8 mb-2  pl-30 w-80 max-w-screen-lg sm:w-96 ">
-            <div className="mb-1 flex flex-col gap-6">
-           
-              <label >Temp</label>
-              <Input value={temperature} required onChange={(e) => { setTemperature(e.target.value) }}
-                size="lg"
-                placeholder="0" min={-100} max={100}
-                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-
-                labelProps={{
-                  className: "before:content-none after:content-none",
-                }}
-              />
-          
-              <Input value={humidity} required onChange={(e) => { setHumidity(e.target.value) }}
-                type="number"
-                size="lg"
-                placeholder="0" min={0} max={100}
-                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                labelProps={{
-                  className: "before:content-none after:content-none",
-                }}
-              />
-
-              <label >Rain</label>
-              <Input value={rain} required onChange={(e) => { setRain(e.target.value) }}
-                type="number"
-                size="lg"
-                placeholder="0" min={0} max={100}
-                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                labelProps={{
-                  className: "before:content-none after:content-none",
-                }}
-              />
-            
-              <label >Sun</label>
-              <Input value={sun} required onChange={(e) => { setSun(e.target.value) }}
-                type="number"
-                size="lg"
-                placeholder="0" min={0} max={100}
-                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                labelProps={{
-                  className: "before:content-none after:content-none",
-                }}
-              />
-              <label >Snow</label>
-            
-              <Input value={snow} required onChange={(e) => { setSnow(e.target.value) }}
-                type="number"
-                size="lg"
-                placeholder="0" min={0} max={100}
-                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                labelProps={{
-                  className: "before:content-none after:content-none",
-                }}
-              />
-            </div>
-
-            <button type="submit" className="mt-6" fullWidth>
-              Update
-            </button>
-          </form>
-        </Card> */}
+          <div className="flex justify-center mt-4">
+          <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Update
+          </button>
+          </div>
+        </form>
       </div>
     </>
   )

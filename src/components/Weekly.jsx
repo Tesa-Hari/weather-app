@@ -73,10 +73,8 @@ function UpdateWeekly(weekforecast){
          <section className="w-full text-lg  py-1 grid grid-cols-5">
         {weeklyForeCast === null && 
         <p>getting the forecst</p> }
-            { displayTheFirstFive && displayTheFirstFive.map((weekforecast,index) => {
-                   
-                   
-                   return <div key={index} className="m-5">
+            { displayTheFirstFive && displayTheFirstFive.map((weekforecast,index) => {                 
+                   return <div key={index}  className="m-2 bg-gray-100 h-64 rounded-xl w-52 bg-gradient-to-t hover:from-purple-700 hover:via-purple-600 ">
                         <img></img>
                         <div className="text-center">
                             <span>{weekforecast.date}</span>

@@ -38,7 +38,7 @@ function HomePage() {
                 <div className="text-lg font-semibold leading-6 text-gray-900">
                 <NavLink to="/" className="mr-4" >Home </NavLink>
                 <NavLink to="/about" className="mr-4">About  </NavLink>
-                <NavLink to="/createweekly/" className="mr-4">Create Weekly  </NavLink>  
+                <NavLink to="/createweekly/" className="mr-4">Add Forecast </NavLink>  
                 </div>
                 <Location callBackLocation={selectLocation} />
                 </div>

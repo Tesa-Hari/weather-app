@@ -64,7 +64,7 @@ function Daily(props) {
             <section className="w-full text-lg grid grid-cols-5  sm:flex-nowrap py-1 ">
                 {dailyForecast === null && <p>getting the forecst</p>}
                 {displayTheFirstFive && displayTheFirstFive.map((forecast, index) => {
-                    return <div key={index} className="m-5 " >
+                    return <div key={index} className="m-2 bg-gray-100 h-64 rounded-xl w-52 bg-gradient-to-t hover:from-purple-600 hover:via-purple-600 " >
                         <img></img>
                         <div className="flex flex-row justify-evenly">
                             <span>{forecast.date}</span>
