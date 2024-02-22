@@ -32,10 +32,10 @@ function Banner(props) {
     if (weeklyForecast) { todayForecast = weeklyForecast.daily[0]; }
     return (
         <>
-            <div className="h-5/6">
+            <div className="h-5/6 w-100">
                 {weeklyForecast === null ? <p>getting forecast</p> : <p></p>}
                 {weeklyForecast &&
-                    <div className=" h-auto rounded-3xl text-white bg-purple-500 flex flex-row flex-wrap md:justify-evenly justify-center  sm:flex-nowrap p-20">
+                    <div className=" h-auto rounded-3xl text-white bg-purple-500 flex flex-row flex-wrap  justify-evenly  sm:flex-nowrap p-20">
                         <div className="mt-20">
                             <p className="text-7xl mt-2 md-2">{weeklyForecast.city}</p>
                             <p className="mt-2 md-2 text-center text-3xl">{todayForecast.date}</p>

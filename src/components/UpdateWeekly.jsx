@@ -57,7 +57,7 @@ function UpdateWeekly() {
   }
 
   return (
-    <>
+    <div className="h-100 mb-20">
       {/* form */}
       <h1 className="text-center text-2xl text-blue-400">Update Weekly</h1>
       <div  className="flex justify-center">
@@ -107,7 +107,7 @@ function UpdateWeekly() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   )
 }
 export default UpdateWeekly;

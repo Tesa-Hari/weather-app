@@ -1,4 +1,9 @@
 import React from "react";
+// import newyork from '../assets/images/NewYork.jpg'
+// import newdelhi from '../assets/images/NewDelhi.jpg'
+// import tokio from '../assets/images/Tokio.jpg'
+// import prishtina from '../assets/images/Kosova.jpg'
+// import tirana from '../assets/images/Tirana.jpg'
 import newyork from '../assets/images/NewYork.jpg'
 import newdelhi from '../assets/images/NewDelhi.jpg'
 import tokio from '../assets/images/Tokio.jpg'

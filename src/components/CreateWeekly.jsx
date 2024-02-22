@@ -66,10 +66,10 @@ function CreateWeekly() {
         console.log(e);
       })
   }, [])
-  return (<>
+  return (<div className="h-100 mb-20">
   <NavLink to="/" className="text-2xl text-violet-600 block mb-4 hover:text-purple">Home</NavLink>
     <h1 className="text-center text-2xl text-blue-400">Add Forecast</h1>
-    <div className="flex justify-center">
+    <div className="flex h-100 justify-center ">
       <form onSubmit={handleSubmit} className="mt-8 mb-2  pl-30 w-80 max-w-screen-lg sm:w-96 ">
         <div className="mb-1 flex flex-col gap-6 ">
           {locations === null && <p>Loading</p>}
@@ -81,41 +81,41 @@ function CreateWeekly() {
               })}
             </select>
           }
-          <label  className="text-purple-700 text-lg">Date</label>
+          <label  className="text-purple-700 text-lg">Date
           <input className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" required onChange={(e) => { setDate(e.target.value) }}
             size="lg"
             placeholder="Date: dd/mm/yyyy"
             type="date"
-          />
-          <label  className="text-purple-700 text-lg" >Temperature</label>
+          /></label>
+          <label  className="text-purple-700 text-lg" >Temperature
           <input type="number" className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" required onChange={(e) => { setTemperature(e.target.value) }}
             size="lg"
             placeholder="0" min={-100} max={100}
-          />
-          <label  className="text-purple-700 text-lg">Humidity</label>
+          /></label>
+          <label  className="text-purple-700 text-lg">Humidity
           <input className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" required onChange={(e) => { setHumidity(e.target.value) }}
             type="number"
             size="lg"
             placeholder="0" min={0} max={100}
-          />
-          <label  className="text-purple-700 text-lg">Rain</label>
+          /></label>
+          <label  className="text-purple-700 text-lg">Rain
           <input className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" required onChange={(e) => { setRain(e.target.value) }}
             type="number"
             size="lg"
             placeholder="0" min={0} max={100}
-          />
-          <label  className="text-purple-700 text-lg">Sun</label>
+          /></label>
+          <label  className="text-purple-700 text-lg">Sun
           <input className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" required onChange={(e) => { setSun(e.target.value) }}
             type="number"
             size="lg"
             placeholder="0" min={0} max={100}
-          />
-          <label  className="text-purple-700 text-lg">Snow</label>
+          /></label>
+          <label  className="text-purple-700 text-lg">Snow
           <input className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" required onChange={(e) => { setSnow(e.target.value) }}
             type="number"
             size="lg"
             placeholder="0" min={0} max={100}
-          />
+          /></label>
         </div>
         <div className="flex justify-center mt-4">
           <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -125,7 +125,7 @@ function CreateWeekly() {
       </form>
 
     </div>
-  </>
+  </div>
   )
 }
 

@@ -58,16 +58,15 @@ function Daily(props) {
     // }
 
     return (
-        <>
-            <section className="overflow-x-auto w-screen text-lg flex flex-row justify-evenly sm:flex-nowrap py-1 ">
-                {dailyForecast === null && <p>getting the forecst</p>}
+        <section className="overflow-x-scroll  w-[100vw] relative text-lg flex flex-row justify-start flex-nowrap sm:overflow-x-hidden sm:flex-nowrap py-1 ">
+        {dailyForecast === null && <p>getting the forecst</p>}
                 {dailyForecast && dailyForecast.daily.map((forecast, index) => {
-                    return <div key={index} className="m-2 mr-8 pt-4 bg-gray-100 shrink-0 h-96 hover:text-white  text-gray-400 rounded-full w-60 bg-gradient-to-t hover:from-purple-600 hover:to-purple-600 " >
+                    return <div key={index} className=" mr-16 p-4 bg-gray-100 shrink-0 min-w-60 h-96   text-gray-400 rounded-full  " >
                         <ChangeWeatherImage data={forecast} />
                         <div className="flex flex-row justify-evenly m-2">
                             <span className="bg-purple-500 text-white p-2 rounded-2xl">{forecast.hour}PM</span>
                         </div>
-                        <p className="text-5xl text-purple-600 hover:text-white text-center m-2">{forecast.currenttemp}°</p>
+                        <p className="text-5xl text-purple-600 text-center m-2">{forecast.currenttemp}°</p>
                         <div className="flex flex-row justify-evenly">
                             <span><FontAwesomeIcon icon={faWind} /> {forecast.windspeed}km/h</span>
                             <span><FontAwesomeIcon icon={faCloudRain} />{forecast.rain}%</span>
@@ -84,7 +83,7 @@ function Daily(props) {
                     </div>
                 })}
             </section>
-        </>
+     
     );
 }
 
