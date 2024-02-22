@@ -4,6 +4,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWind, faCloudRain } from '@fortawesome/free-solid-svg-icons'
 import PopUp from '../components/PopUp'
+import ChangeWeatherImage from "../components/ChangeWeatherimage";
 
 function Banner(props) {
     const [weeklyForecast, setWeeklyForecast] = useState(null)
@@ -47,7 +48,8 @@ function Banner(props) {
                             <div className="text-center p-4">
                                 <span className=" text-white bg-purple-700 p-2 rounded-2xl">Today </span>
                             </div>
-                            <img className="ml-6 w-36 h-28" src="/src/assets/images/snowing_136721.png"></img>
+                            {/* <img className="ml-6 w-36 h-28" src="/src/assets/images/snowing_136721.png"></img> */}
+                            <ChangeWeatherImage data={todayForecast}/>
                             <p className="text-5xl text-purple-600 hover:text-white text-center m-4">{todayForecast.currenttemp}°</p>
                         </div>
                         {open ?<div className="absolute  top-0 bottom-0 right-0 left-0 w-[100vw] h-[100vh] ">

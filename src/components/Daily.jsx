@@ -11,9 +11,6 @@ function Daily(props) {
     const baseUrl = "https://weatherapi.adaptable.app"
     const locationId = props.locationId;
 
-    // prevent reload
-
-
     function deleteCard(id) {
 
         // Delete
@@ -60,13 +57,16 @@ function Daily(props) {
         })
     }
 
+    function moveNext() {
+
+    }
+
     return (
         <>
             <section className="w-full text-lg flex flex-row justify-evenly flex-wrap sm:flex-nowrap py-1 ">
                 {dailyForecast === null && <p>getting the forecst</p>}
                 {displayTheFirstFive && displayTheFirstFive.map((forecast, index) => {
                     return <div key={index} className="m-2 pt-4 bg-gray-100 h-96 hover:text-white rounded-full w-60 bg-gradient-to-t hover:from-purple-600 hover:to-purple-600 " >
-                        {/* <img className="ml-6 w-36 h-28" src="/src/assets/images/snowing_136721.png"></img> */}
                         <ChangeWeatherImage data={forecast} />
                         <div className="flex flex-row justify-evenly m-2">
                             <span className="bg-purple-700 text-white p-2 rounded-2xl">{forecast.date}</span>
@@ -75,16 +75,16 @@ function Daily(props) {
                         <p className="text-5xl text-purple-600 hover:text-white text-center m-2">{forecast.currenttemp}°</p>
                         <div className="flex flex-row justify-evenly">
                             <span><FontAwesomeIcon icon={faWind} /> {forecast.windspeed}km/h</span>
-                            <span><FontAwesomeIcon  icon={faCloudRain}/>{forecast.rain}%</span>
+                            <span><FontAwesomeIcon icon={faCloudRain} />{forecast.rain}%</span>
                         </div>
                         <p className="text-center m-2">Sunny</p>
 
                         <div className="flex justify-center">
-                            <button  onClick={() => {
-                            deleteCard(forecast.id)
-                        }}>
-                            <FontAwesomeIcon icon={faTrash} />                 
-                        </button>
+                            <button onClick={() => {
+                                deleteCard(forecast.id)
+                            }}>
+                                <FontAwesomeIcon icon={faTrash} />
+                            </button>
                         </div>
                     </div>
                 })}

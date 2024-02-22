@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 function CreateWeekly() {
@@ -66,6 +67,7 @@ function CreateWeekly() {
       })
   }, [])
   return (<>
+  <NavLink to="/" className="text-2xl text-violet-600 block mb-4 hover:text-purple">Home</NavLink>
     <h1 className="text-center text-2xl text-blue-400">Add Forecast</h1>
     <div className="flex justify-center">
       <form onSubmit={handleSubmit} className="mt-8 mb-2  pl-30 w-80 max-w-screen-lg sm:w-96 ">
@@ -85,8 +87,8 @@ function CreateWeekly() {
             placeholder="Date: dd/mm/yyyy"
             type="date"
           />
-          <label  className="text-purple-700 text-lg">Temperature</label>
-          <input className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" required onChange={(e) => { setTemperature(e.target.value) }}
+          <label  className="text-purple-700 text-lg" >Temperature</label>
+          <input type="number" className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500" required onChange={(e) => { setTemperature(e.target.value) }}
             size="lg"
             placeholder="0" min={-100} max={100}
           />

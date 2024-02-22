@@ -58,7 +58,6 @@ function UpdateWeekly() {
 
   return (
     <>
-
       {/* form */}
       <h1 className="text-center text-2xl text-blue-400">Update Weekly</h1>
       <div  className="flex justify-center">
@@ -66,7 +65,7 @@ function UpdateWeekly() {
         <form onSubmit={handleSubmit} className="mt-8 mb-2  pl-30 w-80 max-w-screen-lg sm:w-96 ">
           <div className="mb-1 flex flex-col gap-6">
             <label className="text-purple-700 text-lg">Temperature</label>
-            <input value={temperature} required onChange={(e) => { setTemperature(e.target.value) }}
+            <input  type= "number" value={temperature} required onChange={(e) => { setTemperature(e.target.value) }}
               className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
               size="lg"
               placeholder="0" min={-100} max={100}
