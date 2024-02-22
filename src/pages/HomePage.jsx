@@ -7,6 +7,7 @@ import Location from "../components/Location";
 import Footer from "./Footer";
 import Weekly from "../components/Weekly";
 import seasons from '../assets/images/weather-logo.png'; 
+import CityWeather from "../components/CityWeather";
 
 function HomePage() {
 
@@ -28,7 +29,7 @@ function HomePage() {
                 <div className=" flex flex-row flex-wrap">
                 <img src={seasons} alt="Logo" className="h-14 mr-4" /><span className="text-purple-500 text-3xl">Weather<span className="text-gray-500">Wise</span></span> 
                 </div>
-                <div className="text-lg font-semibold leading-6 text-gray-900">
+                <div className="text-lg font-semibold leading-6 text-gray-900 sm-">
                 <NavLink to="/" className="mr-4  hover:text-gray-600 text-purple-400" >Home </NavLink>
                 <NavLink to="/about" className="mr-4  hover:text-gray-600 text-purple-400">About  </NavLink>
                 <NavLink to="/createweekly/" className="mr-4  hover:text-gray-600 text-purple-400">Add Forecast </NavLink>  
@@ -43,8 +44,10 @@ function HomePage() {
              {isToday ? 
              <Daily locationId={locationId} /> :
             <Weekly locationId={locationId} />}
+
+            
             </div>
-       
+                <CityWeather />
          </section>
         </>
     )

@@ -51,32 +51,32 @@ function UpdateWeekly(weekforecast){
    
     navigate('/updateweekly',{state:weekforecast})
 
-    console.log("forecast ...", weekforecast);
+ 
     }
-    let displayTheFirstFive = null;
-        if(weeklyForeCast!==null){
+    // let displayTheFirstFive = null;
+    //     if(weeklyForeCast!==null){
     
-            displayTheFirstFive = weeklyForeCast.weekly.filter((el,index)=>{
-                if(index<5){
-                    return true;
-                }
-                else{
-                    return false;
-                }
+    //         displayTheFirstFive = weeklyForeCast.weekly.filter((el,index)=>{
+    //             if(index<5){
+    //                 return true;
+    //             }
+    //             else{
+    //                 return false;
+    //             }
 
-            })
-        }
+    //         })
+    //     }
    
 
-    console.log(displayTheFirstFive);
+    // console.log(displayTheFirstFive);
     return (
         <>
-         <section className="w-full text-lg flex flex-row justify-evenly flex-wrap sm:flex-nowrap py-1 ">
+         <section className=" overflow-x-scroll w-full text-lg flex flex-row justify-evenly flex-wrap sm:flex-nowrap py-1 ">
         {weeklyForeCast === null && 
         <p>getting the forecst</p> }
-            { displayTheFirstFive && displayTheFirstFive.map((weekforecast,index) => {                 
+            { weeklyForeCast && weeklyForeCast.weekly.map((weekforecast,index) => {                 
                    return <div key={index}  className="m-2 text-gray-400 pt-4 bg-gray-100 h-96 rounded-full w-60 bg-gradient-to-t hover:from-purple-700 hover:to-purple-600 ">
-                         {/* <img className="ml-6 w-36 h-28" src="/src/assets/images/snowing_136721.png"></img> */}
+                        
                          <ChangeWeatherImage data={weekforecast}/>
                         <div className="text-center">
                             <span className=" text-gray-500 p-2 rounded-2xl">{weekforecast.date}</span>
