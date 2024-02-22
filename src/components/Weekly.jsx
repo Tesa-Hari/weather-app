@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import '../App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import ChangeWeatherImage from "./ChangeWeatherimage";
 
 function Weekly(props) {
     const [weeklyForeCast, setWeeklyForecast] = useState(null);
@@ -75,7 +76,8 @@ function UpdateWeekly(weekforecast){
         <p>getting the forecst</p> }
             { displayTheFirstFive && displayTheFirstFive.map((weekforecast,index) => {                 
                    return <div key={index}  className="m-2 pt-4 bg-gray-100 h-96 rounded-full w-60 bg-gradient-to-t hover:from-purple-700 hover:to-purple-600 ">
-                         <img className="ml-6 w-36 h-28" src="/src/assets/images/snowing_136721.png"></img>
+                         {/* <img className="ml-6 w-36 h-28" src="/src/assets/images/snowing_136721.png"></img> */}
+                         <ChangeWeatherImage data={weekforecast}/>
                         <div className="text-center">
                             <span className=" text-gray-500 p-2 rounded-2xl">{weekforecast.date}</span>
                            </div>

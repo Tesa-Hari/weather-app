@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faWind, faCloudRain } from '@fortawesome/free-solid-svg-icons';
+import ChangeWeatherImage from "./ChangeWeatherimage";
 
 function Daily(props) {
 
@@ -65,7 +66,8 @@ function Daily(props) {
                 {dailyForecast === null && <p>getting the forecst</p>}
                 {displayTheFirstFive && displayTheFirstFive.map((forecast, index) => {
                     return <div key={index} className="m-2 pt-4 bg-gray-100 h-96 hover:text-white rounded-full w-60 bg-gradient-to-t hover:from-purple-600 hover:to-purple-600 " >
-                        <img className="ml-6 w-36 h-28" src="/src/assets/images/snowing_136721.png"></img>
+                        {/* <img className="ml-6 w-36 h-28" src="/src/assets/images/snowing_136721.png"></img> */}
+                        <ChangeWeatherImage data={forecast} />
                         <div className="flex flex-row justify-evenly m-2">
                             <span className="bg-purple-700 text-white p-2 rounded-2xl">{forecast.date}</span>
                             <span className="bg-purple-500 text-white p-2 rounded-2xl">{forecast.hour}</span>

@@ -16,7 +16,7 @@ function AboutPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4" >
 
                     {/* Card 1 */}
-                    <div className="p-6 bg-white rounded-3xl flex flex-col justify-between">
+                    <div className="p-6 bg-white rounded-3xl flex flex-col justify-evenly">
                         <div className="rounded-3xl overflow-hidden mb-4">
                             <img src="https://images.pexels.com/photos/301599/pexels-photo-301599.jpeg?cs=srgb&dl=pexels-pixabay-301599.jpg&fm=jpg" alt="Person 1" />
                         </div>
