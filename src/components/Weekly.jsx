@@ -70,28 +70,24 @@ function UpdateWeekly(weekforecast){
     console.log(displayTheFirstFive);
     return (
         <>
-         <section className="w-full text-lg  py-1 grid grid-cols-5">
+         <section className="w-full text-lg flex flex-row justify-evenly flex-wrap sm:flex-nowrap py-1 ">
         {weeklyForeCast === null && 
         <p>getting the forecst</p> }
             { displayTheFirstFive && displayTheFirstFive.map((weekforecast,index) => {                 
-                   return <div key={index}  className="m-2 bg-gray-100 h-64 rounded-xl w-52 bg-gradient-to-t hover:from-purple-700 hover:via-purple-600 ">
-                        <img></img>
+                   return <div key={index}  className="m-2 pt-4 bg-gray-100 h-96 rounded-full w-60 bg-gradient-to-t hover:from-purple-700 hover:to-purple-600 ">
+                         <img className="ml-6 w-36 h-28" src="/src/assets/images/snowing_136721.png"></img>
                         <div className="text-center">
-                            <span>{weekforecast.date}</span>
-                           
-                        </div>
-                        <div className="flex flex-row justify-start align-center">
-                            <span className="text-2xl ml-2 ">{weekforecast.currenttemp}</span>
-                            <span className="text-xl ml-2 ">{weekforecast.rain}</span>
-                        </div>
-                        <p className="text-center">Rainy</p>
-                        <div className="relative">
-                        <button   className="absolute bottom-0 right-0" onClick={()=>{
+                            <span className=" text-gray-500 p-2 rounded-2xl">{weekforecast.date}</span>
+                           </div>
+                       
+                        <p className="text-5xl text-purple-600 hover:text-white text-center m-4">{weekforecast.currenttemp}°</p> 
+                        <div className="flex fle-row justify-center">
+                        <button   className="m-4" onClick={()=>{
                             deleteCard(weekforecast.id);
                         }}> <FontAwesomeIcon icon={faTrash} />   </button>
                         <button onClick={()=>{
                             UpdateWeekly(weekforecast);
-                        }} className="absolute bottom-0 right-5"> <FontAwesomeIcon icon={faEdit} /> </button>
+                        }} className="m-4"> <FontAwesomeIcon icon={faEdit} /> </button>
                     </div>
                     </div>
                 })}

@@ -1,6 +1,9 @@
+body{
+  height: 100%;
+}
 #root {
   max-width: 100%;
-  margin: 2.5rem;
+  padding: 1rem 2.5rem;
 }
 .delete{
   border: 1px solid black;

@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faWind, faCloudRain } from '@fortawesome/free-solid-svg-icons';
 
 function Daily(props) {
 
@@ -61,23 +61,24 @@ function Daily(props) {
 
     return (
         <>
-            <section className="w-full text-lg grid grid-cols-5  sm:flex-nowrap py-1 ">
+            <section className="w-full text-lg flex flex-row justify-evenly flex-wrap sm:flex-nowrap py-1 ">
                 {dailyForecast === null && <p>getting the forecst</p>}
                 {displayTheFirstFive && displayTheFirstFive.map((forecast, index) => {
-                    return <div key={index} className="m-2 bg-gray-100 h-64 rounded-xl w-52 bg-gradient-to-t hover:from-purple-600 hover:via-purple-600 " >
-                        <img></img>
-                        <div className="flex flex-row justify-evenly">
-                            <span>{forecast.date}</span>
-                            <span>{forecast.hour}</span>
+                    return <div key={index} className="m-2 pt-4 bg-gray-100 h-96 hover:text-white rounded-full w-60 bg-gradient-to-t hover:from-purple-600 hover:to-purple-600 " >
+                        <img className="ml-6 w-36 h-28" src="/src/assets/images/snowing_136721.png"></img>
+                        <div className="flex flex-row justify-evenly m-2">
+                            <span className="bg-purple-700 text-white p-2 rounded-2xl">{forecast.date}</span>
+                            <span className="bg-purple-500 text-white p-2 rounded-2xl">{forecast.hour}</span>
                         </div>
+                        <p className="text-5xl text-purple-600 hover:text-white text-center m-2">{forecast.currenttemp}°</p>
                         <div className="flex flex-row justify-evenly">
-                            <span>{forecast.windspeed}</span>
-                            <span>{forecast.rain}</span>
+                            <span><FontAwesomeIcon icon={faWind} /> {forecast.windspeed}km/h</span>
+                            <span><FontAwesomeIcon  icon={faCloudRain}/>{forecast.rain}%</span>
                         </div>
-                        <p className="text-center">Sunny</p>
+                        <p className="text-center m-2">Sunny</p>
 
-                        <div className="relative">
-                            <button className="absolute bottom-0 right-0" onClick={() => {
+                        <div className="flex justify-center">
+                            <button  onClick={() => {
                             deleteCard(forecast.id)
                         }}>
                             <FontAwesomeIcon icon={faTrash} />                 

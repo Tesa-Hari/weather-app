@@ -27,7 +27,7 @@ function CreateWeekly() {
 
     const forecastObj = {
       "locationId": id,
-      "date": parseInt(date),
+      "date": date,
       "currenttemp": parseInt(temperature),
       "humidity": parseInt(humidity),
       "rain": parseInt(rain),
@@ -73,9 +73,9 @@ function CreateWeekly() {
           {locations === null && <p>Loading</p>}
           {locations &&
             <select required className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"  onChange={(e) => { setLocationId(e.target.value) }} id="location">
-              <option disabled selected value="">Location</option>
+              <option disabled  selected value="">Location</option>
               {locations.map((location) => {
-                return <option key={location.id} value={location.id}>{location.city}</option>
+                return <option  key={location.id} value={location.id}>{location.city}</option>
               })}
             </select>
           }

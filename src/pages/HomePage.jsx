@@ -33,20 +33,20 @@ function HomePage() {
             <nav className="w-fixed w-full flex-shrink flex-grow-0 px-4">
                 <div className=" flex flex-row flex-wrap justify-between sticky top-0 p-3 w-full h-full">
                 <div className=" flex flex-row flex-wrap">
-                <img src="{logo}" alt="Logo" className="h-8 mr-4" /><span className="text-blue-500">WeatherWise</span> 
+                <img src="{logo}" alt="Logo" className="h-8 mr-4" /><span className="text-blue-500 text-3xl">WeatherWise</span> 
                 </div>
                 <div className="text-lg font-semibold leading-6 text-gray-900">
-                <NavLink to="/" className="mr-4" >Home </NavLink>
-                <NavLink to="/about" className="mr-4">About  </NavLink>
-                <NavLink to="/createweekly/" className="mr-4">Add Forecast </NavLink>  
+                <NavLink to="/" className="mr-4  hover:text-gray-600 active:text-purple-700" >Home </NavLink>
+                <NavLink to="/about" className="mr-4  hover:text-gray-600 active:text-purple-700">About  </NavLink>
+                <NavLink to="/createweekly/" className="mr-4  hover:text-gray-600 active:text-purple-700">Add Forecast </NavLink>  
                 </div>
                 <Location callBackLocation={selectLocation} />
                 </div>
             </nav> 
             <Banner locationId={locationId}></Banner>
            <div className="p-2 mt-4 mb-4"> 
-            <span className="p-2" onClick={()=>{setIsToday(true);} }>Today</span>  
-             <span className="p-2" onClick={()=>{setIsToday(false);}}>Weekly</span>
+            <button className="p-2 text-gray-700 text-3xl active:text-purple-700" onClick={()=>{setIsToday(true);} }>Today</button>  
+             <button className="p-2 text-gray-700 text-3xl active:text-purple-700" onClick={()=>{setIsToday(false);}}>Weekly</button>
             {isToday ? <Daily locationId={locationId} /> :
             <Weekly locationId={locationId} />}
             </div>
