@@ -44,11 +44,11 @@ function Banner(props) {
                                 <span className="ml-6"><FontAwesomeIcon icon={faCloudRain} />Rain :{todayForecast.rain}%</span>
                             </div>
                         </div>
-                        <div className="m-2 bg-purple-400 h-70 rounded-xl w-52 " onClick={() => setOpen(true)}>
+                        <div className="m-2 bg-purple-400 h-70 rounded-xl w-52 hover:bg-gray-200 " onClick={() => setOpen(true)}>
                             <div className="text-center p-4">
                                 <span className=" text-white bg-purple-700 p-2 rounded-2xl">Today </span>
                             </div>
-                            {/* <img className="ml-6 w-36 h-28" src="/src/assets/images/snowing_136721.png"></img> */}
+                           
                             <ChangeWeatherImage data={todayForecast}/>
                             <p className="text-5xl text-purple-600 hover:text-white text-center m-4">{todayForecast.currenttemp}°</p>
                         </div>

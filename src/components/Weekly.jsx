@@ -75,7 +75,7 @@ function UpdateWeekly(weekforecast){
         {weeklyForeCast === null && 
         <p>getting the forecst</p> }
             { displayTheFirstFive && displayTheFirstFive.map((weekforecast,index) => {                 
-                   return <div key={index}  className="m-2 pt-4 bg-gray-100 h-96 rounded-full w-60 bg-gradient-to-t hover:from-purple-700 hover:to-purple-600 ">
+                   return <div key={index}  className="m-2 text-gray-400 pt-4 bg-gray-100 h-96 rounded-full w-60 bg-gradient-to-t hover:from-purple-700 hover:to-purple-600 ">
                          {/* <img className="ml-6 w-36 h-28" src="/src/assets/images/snowing_136721.png"></img> */}
                          <ChangeWeatherImage data={weekforecast}/>
                         <div className="text-center">

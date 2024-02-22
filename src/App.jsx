@@ -9,15 +9,10 @@ import Weekly from './components/Weekly'
 import { Link } from 'react-router-dom'
 import CreateWeekly from './components/CreateWeekly'
 import UpdateWeekly from './components/UpdateWeekly'
+import Footer from './pages/Footer'
 
 function App() {
-  <nav>
-    <ul>
-    <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/weekly">Weekly Forecast</Link></li>
-    </ul>
-  </nav>
+  
   return (
     <>
       <Routes >
@@ -33,6 +28,8 @@ function App() {
         <Route path="*" >Error Page</Route>
 
       </Routes>
+
+      <Footer />
     </>
   )
 }

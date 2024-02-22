@@ -22,7 +22,7 @@ function HomePage() {
 
     return (
         <>
-        <section className="w-full text-lg flex flex-col flex-wrap sm:flex-nowrap py-1 flex-grow">
+        <section className=" pl-5 pr-5  w-full text-lg flex flex-col flex-wrap sm:flex-nowrap py-1 flex-grow">
             <nav className="w-fixed w-full flex-shrink flex-grow-0 px-4">
                 <div className=" flex flex-row flex-wrap justify-between sticky top-0 p-3 w-full h-full">
                 <div className=" flex flex-row flex-wrap">
@@ -44,14 +44,7 @@ function HomePage() {
              <Daily locationId={locationId} /> :
             <Weekly locationId={locationId} />}
             </div>
-
-            {/* Section */}
-
-
-
-            
-     
-         <Footer />
+       
          </section>
         </>
     )
