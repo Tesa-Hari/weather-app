@@ -9,7 +9,7 @@ import clearsky from '../assets/images/clearsky.png'
 function ChangeWeatherImage(props) {
 
     const [image, setImage] = useState();
-
+    const location = props.location;
     const data = props.data;
 
     function changeImage() {
@@ -17,13 +17,13 @@ function ChangeWeatherImage(props) {
             setImage(sun)
 
         }
-        else if (data.rain > 30 && data.rain < 60) {
+        else if (data.rain > 20 && data.rain < 60) {
             setImage(cloudyrainsun);
         }
         else if (data.sunny > 30 && data.sunny < 50) {
             setImage(cloudysun);
         }
-        else if (data.snow > 30) {
+        else if (data.snow > 50) {
             setImage(snow);
         }
         else if (data.sunny > 50) {
@@ -34,10 +34,9 @@ function ChangeWeatherImage(props) {
 
     }
 
-
     useEffect(() => {
         changeImage();
-    }, []);
+    }, [location]);
 
 
     return (

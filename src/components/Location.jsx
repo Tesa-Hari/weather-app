@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import axios from 'axios'
 
 function Location(props) {
-
-
     const [locations, setLocations] = useState(null);
     const baseUrl = "https://weatherapi.adaptable.app"
     const locationValue = "default";
@@ -25,7 +23,7 @@ function Location(props) {
     }, [])
 
     return (
-        <div className="p-1 w-24.5 min-w-xs ">
+        <div className="p-1 w-24.5 min-w-xs smmax:mt-2">
             {locations === null && <p>Loading</p>}
             {locations && <div>
 

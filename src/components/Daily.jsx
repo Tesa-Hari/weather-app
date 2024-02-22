@@ -40,29 +40,13 @@ function Daily(props) {
                 console.log(e);
             });
     }, [locationId]);
-    console.log(dailyForecast);
-
-    // First five
-    // let displayTheFirstFive = null;
-    // if (dailyForecast !== null) {
-
-    //     displayTheFirstFive = dailyForecast.daily.filter((el, index) => {
-    //         if (index < 5) {
-    //             return true;
-    //         }
-    //         else {
-    //             return false;
-    //         }
-
-    //     })
-    // }
-
+   
     return (
         <section className="overflow-x-scroll  w-[100vw] relative text-lg flex flex-row justify-start flex-nowrap sm:overflow-x-hidden sm:flex-nowrap py-1 ">
         {dailyForecast === null && <p>getting the forecst</p>}
                 {dailyForecast && dailyForecast.daily.map((forecast, index) => {
-                    return <div key={index} className=" mr-16 p-4 bg-gray-100 shrink-0 min-w-60 h-96   text-gray-400 rounded-full  " >
-                        <ChangeWeatherImage data={forecast} />
+                    return <div key={index} className=" mr-16 p-4 bg-gray-100 shrink-0 min-w-60 h-92   text-gray-400 rounded-full  " >
+                        <ChangeWeatherImage data={forecast} location={locationId} />
                         <div className="flex flex-row justify-evenly m-2">
                             <span className="bg-purple-500 text-white p-2 rounded-2xl">{forecast.hour}PM</span>
                         </div>
@@ -71,8 +55,6 @@ function Daily(props) {
                             <span><FontAwesomeIcon icon={faWind} /> {forecast.windspeed}km/h</span>
                             <span><FontAwesomeIcon icon={faCloudRain} />{forecast.rain}%</span>
                         </div>
-                        <p className="text-center m-2">Sunny</p>
-
                         <div className="flex justify-center">
                             <button onClick={() => {
                                 deleteCard(forecast.id)
