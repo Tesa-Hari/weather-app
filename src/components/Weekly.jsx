@@ -10,7 +10,7 @@ import ChangeWeatherImage from "./ChangeWeatherimage";
 
 function Weekly(props) {
     const [weeklyForeCast, setWeeklyForecast] = useState(null);
-    const baseUrl = "https://weatherapi.adaptable.app";
+    const baseUrl = "https://weather-api-683l.onrender.com";
     const locationId = props.locationId;
     const navigate = useNavigate();
 

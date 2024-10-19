@@ -17,7 +17,7 @@ function CreateWeekly() {
   const [snow, setSnow] = useState();
   const navigate = useNavigate();
 
-  const baseUrl = "https://weatherapi.adaptable.app"
+  const baseUrl = "https://weather-api-683l.onrender.com"
   const locationValue = "default";
 
 

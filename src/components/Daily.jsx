@@ -8,7 +8,7 @@ import ChangeWeatherImage from "./ChangeWeatherimage";
 function Daily(props) {
 
     const [dailyForecast, setDailyForecast] = useState(null);
-    const baseUrl = "https://weatherapi.adaptable.app"
+    const baseUrl = "https://weather-api-683l.onrender.com"
     const locationId = props.locationId;
 
     function deleteCard(id) {

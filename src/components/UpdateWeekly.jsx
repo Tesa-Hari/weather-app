@@ -20,7 +20,7 @@ function UpdateWeekly() {
   console.log("Data is ", data);
   console.log("Temps is: ", temperature);
 
-  const baseUrl = "https://weatherapi.adaptable.app"
+  const baseUrl = "https://weather-api-683l.onrender.com"
 
   const handleSubmit = (e) => {
     console.log(e);

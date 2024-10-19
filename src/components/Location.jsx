@@ -4,7 +4,7 @@ import axios from 'axios'
 
 function Location(props) {
     const [locations, setLocations] = useState(null);
-    const baseUrl = "https://weatherapi.adaptable.app"
+    const baseUrl = "https://weather-api-683l.onrender.com"
     const locationValue = "default";
 
 

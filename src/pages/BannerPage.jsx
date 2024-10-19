@@ -10,7 +10,7 @@ function Banner(props) {
     const [weeklyForecast, setWeeklyForecast] = useState(null)
     const [open, setOpen] = useState(false);
   
-    const baseUrl = "https://weatherapi.adaptable.app";
+    const baseUrl = "https://weather-api-683l.onrender.com";
     const locationId = props.locationId;
     let todayForecast = [];
     const getTodayForecast = () => {
